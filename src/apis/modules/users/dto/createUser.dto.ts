@@ -1,15 +1,16 @@
 import { InputType, Field } from '@nestjs/graphql';
+import { Prisma } from '@prisma/client';
 
 @InputType()
-export class CreateUserInput {
+export class CreateUserInput implements Prisma.UserCreateInput {
   @Field()
   username: string;
 
   @Field()
   email: string;
 
-  @Field({ nullable: true })
-  password?: string;
+  @Field()
+  password: string;
 
   @Field({ nullable: true })
   tel?: string;

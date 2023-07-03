@@ -2,7 +2,7 @@ type User {
   id: Int!
   username: String!
   email: String!
-  password: String!
+  password: String
   tel: String!
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -11,8 +11,8 @@ type User {
 input CreateUserInput {
   username: String!
   email: String!
-  password: String!
-  tel: String!
+  password: String
+  tel: String
 }
 
 type Query {
