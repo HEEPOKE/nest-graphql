@@ -1,0 +1,22 @@
+type Shop {
+  id: Int!
+  name: String!
+  address: String!
+  telephone: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+input CreateShopInput {
+  name: String!
+  address: String!
+  telephone: String!
+}
+
+type Query {
+  getShops: [Shop!]!
+}
+
+type Mutation {
+  createShop(data: CreateShopInput!): Shop!
+}
