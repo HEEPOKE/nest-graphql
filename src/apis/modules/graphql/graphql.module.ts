@@ -4,6 +4,8 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { PrismaModule } from 'src/prisma/prisma.module';
 import { UserResolver } from '../users/users.resolver';
 import { UserService } from '../users/users.service';
+import { ShopResolver } from '../shops/shops.resolver';
+import { ShopService } from '../shops/shops.service';
 
 @Module({
   imports: [
@@ -15,6 +17,6 @@ import { UserService } from '../users/users.service';
     }),
     PrismaModule,
   ],
-  providers: [UserResolver, UserService],
+  providers: [UserResolver, UserService, ShopResolver, ShopService],
 })
 export class GraphqlModule {}
