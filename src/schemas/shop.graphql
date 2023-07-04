@@ -14,9 +14,12 @@ input CreateShopInput {
 }
 
 type Query {
+  getShop(id: Int!): Shop!
   getShops: [Shop!]!
 }
 
 type Mutation {
   createShop(data: CreateShopInput!): Shop!
+  updateShop(id: Int!, data: UpdateShopInput!): Shop!
+  deleteShop(id: Int!): Shop!
 }

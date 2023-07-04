@@ -16,9 +16,12 @@ input CreateUserInput {
 }
 
 type Query {
+  getUser(id: Int!): User!
   getUsers: [User!]!
 }
 
 type Mutation {
   createUser(data: CreateUserInput!): User!
+  updateUser(id: Int!, data: UpdateUserInput!): User!
+  deleteUser(id: Int!): User!
 }

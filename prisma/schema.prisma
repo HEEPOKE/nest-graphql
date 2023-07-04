@@ -21,7 +21,7 @@ model Shop {
   id        Int      @id @default(autoincrement())
   name      String   @unique
   address   String   @db.Text
-  telephone String   @db.VarChar(255)
+  telephone String?   @db.VarChar(255)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
