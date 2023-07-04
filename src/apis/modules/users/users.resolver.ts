@@ -7,34 +7,37 @@ import { UserModel } from 'src/models/user.model';
 export class UserResolver {
   constructor(private readonly userService: UserService) {}
 
-  @Query(() => UserModel)
+  @Query(() => UserModel, { description: 'Get a user by ID' })
   async getUser(
-    @Args('id', { type: () => Int }) id: number,
+    @Args('id', { type: () => Int, description: 'The ID of the user' })
+    id: number,
   ): Promise<UserModel> {
     return this.userService.getUser(id);
   }
 
-  @Query(() => [UserModel])
+  @Query(() => [UserModel], { description: 'Get all users' })
   async getUsers(): Promise<UserModel[]> {
     return this.userService.getUsers();
   }
 
-  @Mutation(() => UserModel)
+  @Mutation(() => UserModel, { description: 'Create a new user' })
   async createUser(@Args('data') data: CreateUserInput): Promise<UserModel> {
     return this.userService.createUser(data);
   }
 
-  @Mutation(() => UserModel)
+  @Mutation(() => UserModel, { description: 'Update an existing user' })
   async updateUser(
-    @Args('id', { type: () => Int }) id: number,
+    @Args('id', { type: () => Int, description: 'The ID of the user' })
+    id: number,
     @Args('data') data: UpdateUserInput,
   ): Promise<UserModel> {
     return this.userService.updateUser(id, data);
   }
 
-  @Mutation(() => UserModel)
+  @Mutation(() => UserModel, { description: 'Delete a user' })
   async deleteUser(
-    @Args('id', { type: () => Int }) id: number,
+    @Args('id', { type: () => Int, description: 'The ID of the user' })
+    id: number,
   ): Promise<UserModel> {
     return this.userService.deleteUser(id);
   }

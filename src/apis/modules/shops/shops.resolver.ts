@@ -7,34 +7,37 @@ import { CreateShopInput, UpdateShopInput } from './dto/shop.dto';
 export class ShopResolver {
   constructor(private readonly shopService: ShopService) {}
 
-  @Query(() => ShopModel)
+  @Query(() => ShopModel, { description: 'Get a shop by ID' })
   async getShop(
-    @Args('id', { type: () => Int }) id: number,
+    @Args('id', { type: () => Int, description: 'The ID of the shop' })
+    id: number,
   ): Promise<ShopModel> {
     return this.shopService.getShop(id);
   }
 
-  @Query(() => [ShopModel])
+  @Query(() => [ShopModel], { description: 'Get all shops' })
   async getShops(): Promise<ShopModel[]> {
     return this.shopService.getShops();
   }
 
-  @Mutation(() => ShopModel)
+  @Mutation(() => ShopModel, { description: 'Create a new shop' })
   async createShop(@Args('data') data: CreateShopInput): Promise<ShopModel> {
     return this.shopService.createShop(data);
   }
 
-  @Mutation(() => ShopModel)
+  @Mutation(() => ShopModel, { description: 'Update an existing shop' })
   async updateShop(
-    @Args('id', { type: () => Int }) id: number,
+    @Args('id', { type: () => Int, description: 'The ID of the shop' })
+    id: number,
     @Args('data') data: UpdateShopInput,
   ): Promise<ShopModel> {
     return this.shopService.updateShop(id, data);
   }
 
-  @Mutation(() => ShopModel)
+  @Mutation(() => ShopModel, { description: 'Delete a shop' })
   async deleteShop(
-    @Args('id', { type: () => Int }) id: number,
+    @Args('id', { type: () => Int, description: 'The ID of the shop' })
+    id: number,
   ): Promise<ShopModel> {
     return this.shopService.deleteShop(id);
   }
