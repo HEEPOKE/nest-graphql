@@ -10,6 +10,16 @@ yarn
 docker compose up -d
 ```
 
+```bash
+npx prisma migrate dev
+```
+
+- update 
+
+```bash
+npx prisma db push
+```
+
 ## Running the app
 
 ```bash
